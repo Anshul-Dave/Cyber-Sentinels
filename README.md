@@ -1,38 +1,108 @@
-# SafeGuard AI
+# 🛡️ Cyber-Sentinels
 
-Privacy-first scam screening web app. Message, URL, QR, and screenshot scans run in the browser using an on-device text classifier, explicit detection rules, URL checks, and local English OCR.
+> A cybersecurity project focused on detecting, monitoring, and defending against digital threats.
 
-## Run locally
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
 
-```sh
-npm install
-npm run dev
+---
+
+## 📖 About the Project
+
+**Cyber-Sentinels** is a cybersecurity-focused project built to help users understand, detect, and protect against common online threats.
+
+*(Replace this paragraph with 2–3 lines about what your project does and why you built it.)*
+
+## ✨ Features
+
+- 🔍 Threat detection and monitoring
+- 🔐 Security best-practice guidance
+- 📊 Clear reports and alerts
+- ⚡ Simple and easy to use
+- 🧩 Modular and easy to extend
+
+*(Edit this list to match your real features.)*
+
+## 🛠️ Tech Stack
+
+| Category  | Technology                    |
+|-----------|-------------------------------|
+| Language  | Python / JavaScript / Java *(edit)* |
+| Frontend  | HTML, CSS, JS *(if any)*      |
+| Tools     | Git, GitHub                   |
+
+## 📁 Project Structure
+
+```
+Cyber-Sentinels/
+├── src/            # Main source code
+├── docs/           # Documentation
+├── assets/         # Images and static files
+├── README.md       # Project overview
+└── LICENSE         # License file
 ```
 
-## Validate and build
+*(Update this to match your actual folders and files.)*
 
-```sh
-npm run lint
-npm run build
-npm run build:extension
-npm run build:extension:firefox
-npm run preview
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Git
+- Python 3.8+ *(or your required runtime)*
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Anshul-Dave/Cyber-Sentinels.git
+
+# Go into the project folder
+cd Cyber-Sentinels
+
+# Install dependencies (if any)
+pip install -r requirements.txt
 ```
 
-## Browser extension
+### Run the Project
 
-The WebExtension checks clicked HTTP/HTTPS links before navigation and can scan the current website from its toolbar popup. URL structure checks run locally and share the same analyzer as the web app; no browsing history or page content is sent to a server.
+```bash
+python main.py
+```
 
-Build the Chromium package (Chrome, Edge, Brave, Opera) with `npm run build:extension`, or the Firefox package with `npm run build:extension:firefox`. Load `dist-extension/chromium` or `dist-extension/firefox`, respectively, as an unpacked/temporary extension in the chosen browser. The browser will request access to HTTP/HTTPS sites so the extension can inspect clicked links. Restricted browser pages and direct address-bar navigations cannot be intercepted by this version. The score is heuristic and is not a guarantee of safety.
+*(Change the command to however your project is started.)*
 
-## Project layout
+## 📸 Screenshots
 
-- `src/main.tsx` — browser entry point and global styles
-- `src/App.tsx` — screen state, navigation, and shared scan history
-- `src/sections/` — app screens and scan flows
-- `src/components/` — shared interface components
-- `src/lib/` — detection engine, model helpers, and local storage
-- `src/assets/` — bundled classifier model
-- `public/` — PWA files and local OCR worker, WASM, and language data
+*(Add screenshots here)*
 
-Scan results describe heuristic signal strength, not a probability or a guarantee that content is safe. Screenshot OCR runs locally and does not upload images.
+```
+![Screenshot](assets/screenshot.png)
+```
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m "Add your feature"`
+4. Push the branch: `git push origin feature/your-feature`
+5. Open a Pull Request
+
+## ⚠️ Disclaimer
+
+This project is intended for **educational and ethical purposes only**. The author is not responsible for any misuse.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## 👤 Author
+
+**Anshul Dave**
+GitHub: [@Anshul-Dave](https://github.com/Anshul-Dave)
+
+---
+
+⭐ If you like this project, give it a star!
