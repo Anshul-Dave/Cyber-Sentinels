@@ -54,5 +54,9 @@ document.querySelector('#back').addEventListener('click', () => {
 })
 
 continueButton.addEventListener('click', () => {
-  if (safeTarget) window.location.assign(safeTarget.href)
+  if (safeTarget) {
+    const newUrl = new URL(safeTarget.href)
+    newUrl.searchParams.set('safeguard_override', '1')
+    window.location.assign(newUrl.href)
+  }
 })

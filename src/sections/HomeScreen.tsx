@@ -1,5 +1,5 @@
 import { Led } from '../components/RiskGauge'
-import { ShieldCheck, MessageSquareWarning, Link2, QrCode, ArrowRight, Radar, LayoutDashboard, ImageUp, GraduationCap, ShieldAlert, BellRing, BrainCircuit } from 'lucide-react'
+import { ShieldCheck, MessageSquareWarning, Link2, QrCode, ArrowRight, Radar, ImageUp, GraduationCap, ShieldAlert, BellRing } from 'lucide-react'
 import type { RiskResult } from '../lib/engine'
 import { MODEL_META } from '../lib/engine'
 

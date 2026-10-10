@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { House, ScanSearch, Link2, QrCode, History, Settings as SettingsIcon, Lock, ShieldCheck, LayoutDashboard, ImageUp, BellRing, BrainCircuit } from 'lucide-react'
+import { House, ScanSearch, Link2, QrCode, History, Settings as SettingsIcon, Lock, ShieldCheck, ImageUp, BellRing } from 'lucide-react'
 import { HomeScreen } from './sections/HomeScreen'
 import { ScanMessageScreen } from './sections/ScanMessageScreen'
 import { UrlScanScreen } from './sections/UrlScanScreen'

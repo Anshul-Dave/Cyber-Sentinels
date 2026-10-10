@@ -11,6 +11,18 @@
     return warning.href
   }
 
+  // Check the current page automatically on load
+  const currentUrl = window.location.href
+  if (currentUrl.startsWith('http') && !currentUrl.includes('safeguard_override=1')) {
+    runtime.sendMessage({ type: 'safeguard:analyze-url', url: currentUrl })
+      .then((result) => {
+        if (result?.ok && result.score >= 50) {
+          window.location.replace(warningUrl(currentUrl, result.reasons, undefined, result.score))
+        }
+      })
+      .catch(() => {})
+  }
+
   document.addEventListener('click', (event) => {
     if (!(event.target instanceof Element)) return
     const anchor = event.target.closest('a[href]')
