@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Link warning · SafeGuard AI</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="warning-page">
+    <main class="warning-card">
+      <p class="eyebrow">SAFEGUARD AI · LOCAL URL CHECK</p>
+      <p id="status" class="status high">LINK CHECK</p>
+      <h1 id="title">Pause before opening this link</h1>
+      <p id="host" class="host"></p>
+      <p id="message" class="subtle">The URL has structural signals that may indicate a scam.</p>
+      <ul id="reasons"></ul>
+      <div class="actions">
+        <button id="back" class="secondary" type="button">GO BACK</button>
+        <button id="continue" type="button">OPEN ANYWAY</button>
+      </div>
+      <p class="footnote">This heuristic check is not a guarantee that a site is safe or malicious. Only continue if you trust the destination.</p>
+    </main>
+    <script src="warning.js"></script>
+  </body>
+</html>

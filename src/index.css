@@ -1,0 +1,264 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+@import '@fontsource/jetbrains-mono/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #040914;
+  --bg-2: #091827;
+  --panel: rgba(11, 17, 31, 0.9);
+  --panel-2: rgba(15, 26, 41, 0.92);
+  --panel-3: rgba(14, 23, 36, 0.98);
+  --border: rgba(126, 161, 212, 0.2);
+  --border-strong: rgba(34, 211, 238, 0.45);
+  --cyan: #67e8f9;
+  --mint: #5eead4;
+  --amber: #fbbf24;
+  --red: #f87171;
+  --violet: #8b5cf6;
+  --text-1: #eaf9ff;
+  --text-2: #b2c5df;
+  --text-3: #7d8ead;
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(103, 232, 249, 0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.12), transparent 20%),
+    var(--bg);
+}
+
+body {
+  font-family: 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--text-1);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+  letter-spacing: 0.01em;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+}
+
+.cyber-shell {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(5, 12, 24, 0.96), rgba(4, 9, 20, 0.98)),
+    var(--bg);
+}
+
+.cyber-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(103, 232, 249, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 232, 249, 0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
+}
+
+.font-mono2 {
+  font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+}
+
+/* ambient depth */
+.bg-depth {
+  background:
+    radial-gradient(900px 500px at 15% -10%, rgba(34, 211, 238, 0.06), transparent 60%),
+    radial-gradient(800px 500px at 90% 110%, rgba(52, 211, 153, 0.05), transparent 60%),
+    var(--bg);
+}
+
+/* scanline texture */
+.scanlines::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(255, 255, 255, 0.012) 3px
+  );
+}
+
+/* hairline panel */
+.panel {
+  background: linear-gradient(180deg, rgba(17, 26, 43, 0.95), rgba(10, 16, 27, 0.96));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 18px 40px rgba(2, 6, 23, 0.48),
+    0 0 0 1px rgba(103, 232, 249, 0.05);
+  backdrop-filter: blur(6px);
+}
+
+.panel:hover {
+  border-color: rgba(103, 232, 249, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 0 1px rgba(103, 232, 249, 0.08),
+    0 20px 42px rgba(8, 15, 26, 0.65);
+}
+
+.label-caps {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.label-caps-tight {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* pulsing status LED */
+@keyframes led-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+  50% { box-shadow: 0 0 0 7px rgba(52, 211, 153, 0); }
+}
+.led {
+  width: 8px; height: 8px; border-radius: 9999px;
+  background: var(--mint);
+  animation: led-pulse 1.5s ease-in-out infinite;
+}
+.led-red {
+  background: var(--red);
+  animation-name: led-pulse-red;
+}
+@keyframes led-pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.55); }
+  50% { box-shadow: 0 0 0 7px rgba(248, 113, 113, 0); }
+}
+
+/* radar sweep */
+@keyframes radar-sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.radar-sweep {
+  animation: radar-sweep 4.2s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes blip {
+  0% { opacity: 0.9; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2.4); }
+}
+.radar-blip {
+  animation: blip 2.1s ease-out infinite;
+}
+
+/* scanning line for analyze state */
+@keyframes scan-y {
+  0% { top: 0%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+.scanline-anim {
+  animation: scan-y 1.6s ease-in-out infinite;
+}
+
+/* ticker */
+@keyframes ticker-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker-x 42s linear infinite;
+}
+
+/* gauge arc */
+.gauge-arc {
+  transition: stroke-dashoffset 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* entrances */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise-in {
+  animation: rise-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* QR viewport corners */
+.qr-corner {
+  position: absolute;
+  width: 26px; height: 26px;
+  border-color: var(--cyan);
+  border-style: solid;
+}
+
+/* safe areas */
+.safe-bottom {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
+}
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* thin scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* reduced motion */
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
+  animation-duration: 0.001s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+}
+
+textarea, input, select {
+  caret-color: var(--cyan);
+}
+
+button {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+aside button:hover, nav button:hover, header button:hover {
+  transform: none;
+}
+
+button:focus-visible {
+  outline: 2px solid rgba(103, 232, 249, 0.8);
+  outline-offset: 2px;
+}
+
+main > * {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SafeGuard AI</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="popup">
+    <main>
+      <p class="eyebrow">ON-DEVICE LINK PROTECTION</p>
+      <h1>SafeGuard AI</h1>
+      <p class="subtle">Check the website in this tab using the same local URL analyzer as the app.</p>
+      <button id="scan" type="button">SCAN THIS WEBSITE</button>
+      <section id="result" class="result" aria-live="polite">
+        <p class="subtle">Your current page is not scanned until you choose the button above.</p>
+      </section>
+      <p class="footnote">URL structure checks are heuristic signals, not a guarantee. Page contents are not uploaded.</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "SafeGuard AI - Scam Link Protection",
+  "version": "1.0.0",
+  "description": "On-device checks for suspicious links before you open them.",
+  "permissions": ["activeTab"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "action": {
+    "default_title": "Scan this website with SafeGuard AI",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["url-analyzer.js", "background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "safeguard-ai-link-protection@local"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["warning.html", "warning.js", "styles.css"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ]
+}
